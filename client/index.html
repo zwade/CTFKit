@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="/static/styles.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+		<script src="/static/main.js"></script>
+
+		<script class="template" type="application/template" id="selection">
+			<ul class="collection with-header"><li class="collection-header"><h4>{{name}}</h4></li>{{contents}}</ul>
+			<form enctype="multipart/form-data" method="post" action="/file/add" id="new-file">
+				<input type="file" name="file" id="addfile" onchange="document.getElementById('new-file').submit()" multiple/>
+				<label for="addfile"> <a class="full waves-effect waves-light btn col s12 m6 offset-m3">Add File</a></label>
+				<input type="hidden" name="directory" value="{{name}}"></input>
+			</form>
+		</script>
+
+		<script class="template" type="application/template" id="file-item">
+			<li class="collection-item"><a href="#file-{{dir}}/{{name}}">{{name}}<div class="secondary-content"><i class="material-icons">send</i></div></a></li>
+		</script>
+
+		<script class="template" type="application/template" id="file-page">
+			<div class="file-name"><h4>{{name}}</h4></div><br>	
+			<a class="full waves-effect waves-light btn col s12 m6 l6 offset-l3 offset-m3" href="/files/{{url}}">Download<a>
+		</script>
+
+		<script class="template" type="application/template" id="file-body">
+			<div class="col s12 m6 l4 file"><a class="full waves-effect waves-light btn">{{name}}</a></div>	
+		</script>
+
+		<script class="template" type="application/template" id="side-link">
+			<li><a href="#dir-{{name}}">{{name}}</a></li>
+		</script>
+	</head>
+	<body>
+		<nav>
+			<div class="nav-wrapper">
+				<a href="#" class="center brand-logo">Raelly CTF</a>
+			</div>
+		</nav>
+
+		<ul id="slide-out" class="side-nav fixed">
+		</ul>
+		<a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>	
+		<div class="inner">
+			<div class="container">
+				<div class="row" id="content"></div>
+			</div>
+		</div>
+
+	</body>
+</html>

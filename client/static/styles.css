@@ -1,0 +1,23 @@
+.inner {
+	margin-left:250px;
+}
+
+.nav-wrapper {
+	margin-left:250px;
+}
+
+.file {
+	margin-bottom: 20px;
+}
+
+.full {
+	width: 100%;
+	text-align: center;
+}
+.file-name {
+	text-align: center;
+	width: 100%;
+}
+#addfile {
+	display: none;
+}
